@@ -6,7 +6,7 @@
 
 A lightweight, highly customizable toast notification library with no dependencies. ButterPop makes creating beautiful, interactive notifications smooth as butter! 🍞✨
 
-[View Demo](https://ayushx309.eternalbytes.in/ButterPop.js/) | [GitHub](https://github.com/Ayushx309/ButterPop.js)
+[View Demo](https://ayushx309.eternalbytes.in/ButterPop.js/#demo) | [GitHub](https://github.com/Ayushx309/ButterPop.js)
 
 <p align="center">
   <img src="https://ayushx309.eternalbytes.in/ButterPop.js/banner.png" alt="ButterPop.js Demo" width="800" />
