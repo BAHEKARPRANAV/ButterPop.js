@@ -280,7 +280,7 @@
   };
   
   // Remove toast from DOM
-  const removeToast = (id) => {
+  let removeToast = (id) => {
     const toastData = toastStorage.activeToasts.get(id);
     if (!toastData) return false;
     
@@ -547,7 +547,7 @@
     // Try to load the CSS file
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'butterpop.css';
+    link.href = 'https://cdn.jsdelivr.net/npm/butterpop@1.0.1/butterpop.min.css';
     link.setAttribute('data-butterpop-css', 'true');
     document.head.appendChild(link);
     
