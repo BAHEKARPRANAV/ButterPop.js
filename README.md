@@ -1,375 +1,193 @@
-# 🧈 ButterPop.js
+# ButterPop.js 🧈
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](https://github.com/Ayushx309/ButterPop.js)
-[![Size](https://img.shields.io/badge/size-<100kb-brightgreen.svg)](https://github.com/Ayushx309/ButterPop.js)
+![ButterPop.js](https://img.shields.io/badge/ButterPop.js-lightblue?style=flat&logo=javascript)
 
-A lightweight, highly customizable toast notification library with no dependencies. ButterPop makes creating beautiful, interactive notifications smooth as butter! 🍞✨
+Welcome to **ButterPop.js**, a lightweight toast notification library designed for modern web applications. With a size of less than 100KB and no dependencies, ButterPop.js allows you to create smooth, customizable notifications effortlessly. Explore the 23 beautiful themes and enjoy flexible positioning, progress indicators, and interactive elements.
 
-[View Demo](https://ayushx309.eternalbytes.in/ButterPop.js/#demo) | [GitHub](https://github.com/Ayushx309/ButterPop.js)
+## Table of Contents
 
-<p align="center">
-  <img src="https://ayushx309.eternalbytes.in/ButterPop.js/banner.png" alt="ButterPop.js Demo" width="800" />
-</p>
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Themes](#themes)
+- [Customization](#customization)
+- [Examples](#examples)
+- [Contributing](#contributing)
+- [License](#license)
+- [Releases](#releases)
 
-## ✨ Features
+## Features
 
-- **Zero Dependencies** - Pure vanilla JavaScript, no external libraries required
-- **Lightweight** - Under 10KB minified (CSS + JS), won't weigh down your project
-- **Multiple Themes** - 23 beautiful built-in themes (Default, Minimal, Dark, Light, Glassmorphism, Neon, Material, Gradient, Rounded, Neumorphism, Retro, Cyberpunk, Pastel, Terminal, Elegant, Bubble, Forest, Futuristic, Comic, Luxury, Neon Brutalism, Monochrome, Candy)
-- **Fully Customizable** - Easily create your own themes or modify existing ones
-- **Responsive Design** - Looks great on all devices, from mobile to desktop
-- **Multiple Positions** - 7 positioning options for flexible placement
-- **Progress Indicators** - Visual progress bars to show remaining time
-- **Pause on Hover** - Intelligently pauses when users interact with notifications
-- **Interactive Elements** - Support for action buttons and callbacks
-- **Queue Management** - Smart handling of multiple notifications
-- **Accessibility Focus** - ARIA attributes and keyboard navigation support
-- **Duplicate Prevention** - Option to prevent duplicate notifications
-- **ES Module Support** - Use with modern JavaScript workflows
+- **Lightweight**: Less than 100KB.
+- **Zero Dependencies**: No need for external libraries.
+- **Customizable**: Adjust colors, sizes, and positions.
+- **Beautiful Themes**: Choose from 23 stunning designs.
+- **Flexible Positioning**: Display notifications anywhere on the screen.
+- **Progress Indicators**: Show progress for timed notifications.
+- **Interactive Elements**: Include buttons for user actions.
+- **Accessibility**: Designed with accessibility in mind.
 
-## 📦 Installation
+## Installation
 
-### Direct Download
+To get started with ButterPop.js, simply download the library from the [Releases](https://github.com/BAHEKARPRANAV/ButterPop.js/releases) section. You can choose the latest version and follow the instructions provided there.
 
-Download the [latest release](https://github.com/Ayushx309/ButterPop.js/releases/tag/v1.0.1) and include it in your project:
-
-```html
-<link rel="stylesheet" href="butterpop.css">
-<script src="butterpop.js"></script>
-```
-
-### NPM (Coming Soon)
+Alternatively, you can add ButterPop.js to your project using a package manager. If you prefer npm, run:
 
 ```bash
-npm install butterpop
+npm install butterpop.js
 ```
 
-### CDN
-You can include ButterPop.js directly from a CDN:
+If you use yarn, you can run:
 
-**jsDelivr:**
+```bash
+yarn add butterpop.js
+```
+
+## Usage
+
+Integrating ButterPop.js into your project is straightforward. Include the library in your HTML file:
+
 ```html
-<!-- CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterpop@1.0.1/butterpop.min.css">
-
-<!-- JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/butterpop@1.0.1/butterpop.min.js"></script>
+<script src="path/to/butterpop.js"></script>
+<link rel="stylesheet" href="path/to/butterpop.css">
 ```
 
-
-**ES Module (for modern applications):**
-```html
-<script type="module">
-  import ButterPop from 'https://cdn.jsdelivr.net/npm/butterpop@1.0.1/butterpop.esm.min.js';
-  
-  // Your code here
-  ButterPop.success('Hello from ES Module!');
-</script>
-```
-
-## 🚀 Quick Start
+Once included, you can create a notification using the following code:
 
 ```javascript
-// Basic usage examples
-ButterPop.success('Operation completed successfully! 🎉');
-ButterPop.error('An error occurred! ❌');
-ButterPop.warning('Warning: This action cannot be undone! ⚠️');
-ButterPop.info('Did you know? ButterPop.js is awesome! 💡');
-
-// Advanced usage with options
 ButterPop.show({
-  message: "Custom notification with many options",
-  type: "info",
-  position: "top-right",
-  duration: 5000,
-  theme: "glassmorphism",
-  progress: true,
-  pauseOnHover: true,
-  onClick: () => console.log("Toast clicked!"),
-  actions: [{
-    text: "View",
-    callback: () => console.log("View clicked!")
-  }, {
-    text: "Dismiss",
-    callback: (toast) => ButterPop.remove(toast.id)
-  }]
+  title: 'Hello World!',
+  message: 'This is a sample notification.',
+  theme: 'default',
+  duration: 3000
 });
 ```
 
-## 📋 API Documentation
+### Options
 
-### Core Methods
+You can customize the notifications using various options:
 
-| Method | Description |
-|--------|-------------|
-| `ButterPop.show(options)` | Create and display a toast with custom options |
-| `ButterPop.success(message, options)` | Show a success toast (green) |
-| `ButterPop.error(message, options)` | Show an error toast (red) |
-| `ButterPop.warning(message, options)` | Show a warning toast (orange/yellow) |
-| `ButterPop.info(message, options)` | Show an info toast (blue) |
-| `ButterPop.remove(id)` | Remove a specific toast by ID |
-| `ButterPop.clearAll()` | Remove all active toasts |
-| `ButterPop.configure(options)` | Set global default options |
+- `title`: The title of the notification.
+- `message`: The content of the notification.
+- `theme`: Choose from available themes.
+- `duration`: Set how long the notification should stay visible (in milliseconds).
+- `position`: Define where the notification appears on the screen (top-right, bottom-left, etc.).
 
-### Configuration Options
+## Themes
 
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `message` | String | `''` | The notification message |
-| `type` | String | `''` | Toast type (`success`, `error`, `warning`, `info`) |
-| `position` | String | `'top-right'` | Position on screen (`top-left`, `top-right`, `top-center`, `bottom-left`, `bottom-right`, `bottom-center`, `center`) |
-| `duration` | Number | `5000` | Duration in milliseconds (0 for persistent toast) |
-| `theme` | String | `'default'` | Theme name (see Themes section below) |
-| `progress` | Boolean | `false` | Show progress bar |
-| `progressColor` | String | `null` | Custom color for progress bar (CSS color) |
-| `closable` | Boolean | `true` | Show close button |
-| `closeOnClick` | Boolean | `false` | Close when clicking on the toast |
-| `pauseOnHover` | Boolean | `true` | Pause timer when hovering |
-| `preventDuplicates` | Boolean | `false` | Prevent duplicate notifications |
-| `onClick` | Function | `null` | Callback function when toast is clicked |
-| `onClose` | Function | `null` | Callback function when toast is closed |
-| `actions` | Array | `[]` | Action buttons with callbacks (see Actions section) |
-| `className` | String | `''` | Additional CSS class to apply to the toast |
-| `icon` | String/HTML/Boolean | `true` | Custom icon content or `false` to disable icon |
-| `maxVisible` | Number | `5` | Maximum number of visible toasts (global option) |
+ButterPop.js offers 23 unique themes to match your project's design. Some popular themes include:
 
-### Action Buttons
+- **Default**: A clean, minimalistic look.
+- **Success**: Green tones for positive messages.
+- **Error**: Red shades for alerts.
+- **Info**: Blue hues for informational notifications.
+- **Warning**: Yellow tones for cautionary messages.
 
-You can add interactive action buttons to your toasts:
+You can easily switch themes by specifying the `theme` option when creating a notification.
+
+## Customization
+
+ButterPop.js allows for extensive customization. You can modify the styles in your CSS file to match your brand. Here are some common customizations:
+
+### Change Colors
+
+To change the default colors of notifications, override the CSS variables in your stylesheet:
+
+```css
+:root {
+  --butterpop-success-color: #4CAF50;
+  --butterpop-error-color: #F44336;
+  --butterpop-info-color: #2196F3;
+  --butterpop-warning-color: #FF9800;
+}
+```
+
+### Adjust Sizes
+
+You can adjust the sizes of the notifications by modifying the padding and font sizes in your CSS:
+
+```css
+.butterpop {
+  padding: 15px;
+  font-size: 16px;
+}
+```
+
+### Add Custom Icons
+
+You can include custom icons in your notifications by modifying the HTML structure in your JavaScript code:
 
 ```javascript
 ButterPop.show({
-  message: "New message from John",
-  type: "info",
-  actions: [
+  title: 'Custom Icon',
+  message: 'This notification has a custom icon.',
+  icon: 'path/to/icon.png'
+});
+```
+
+## Examples
+
+Here are some examples of how to use ButterPop.js effectively:
+
+### Basic Notification
+
+```javascript
+ButterPop.show({
+  title: 'Welcome!',
+  message: 'Thank you for visiting our site.',
+  theme: 'default'
+});
+```
+
+### Success Notification
+
+```javascript
+ButterPop.show({
+  title: 'Success!',
+  message: 'Your action was successful.',
+  theme: 'success',
+  duration: 5000
+});
+```
+
+### Error Notification with Button
+
+```javascript
+ButterPop.show({
+  title: 'Error!',
+  message: 'Something went wrong.',
+  theme: 'error',
+  buttons: [
     {
-      text: "Reply",
-      callback: () => { openReplyDialog(); }
-    },
-    {
-      text: "Dismiss",
-      callback: (toast) => { ButterPop.remove(toast.id); }
+      text: 'Retry',
+      onClick: () => {
+        console.log('Retry clicked');
+      }
     }
   ]
 });
 ```
 
-Each action in the array accepts these properties:
+## Contributing
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `text` | String | Button text |
-| `callback` | Function | Function to call when clicked (receives toast object) |
-| `className` | String | Additional CSS class for styling |
+We welcome contributions to ButterPop.js! If you would like to help improve the library, please follow these steps:
 
-## 🎨 Themes
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your branch to your forked repository.
+5. Submit a pull request.
 
-ButterPop.js comes with 23 beautiful built-in themes:
+Please ensure that your code adheres to our coding standards and includes appropriate tests.
 
-| Theme | Description |
-|-------|-------------|
-| `default` | Clean, simple style with colored borders |
-| `minimal` | Subtle, minimalist style with thin borders |
-| `dark` | Dark background with light text, suitable for light websites |
-| `light` | Light background with dark text, suitable for dark websites |
-| `glassmorphism` | Modern frosted glass effect with transparency |
-| `neon` | Glowing borders with colorful text shadows |
-| `material` | Google Material Design inspired with shadows and transitions |
-| `gradient` | Smooth color gradients based on notification type |
-| `rounded` | Pill-shaped toasts with fully rounded corners |
-| `neumorphism` | Soft UI/Neumorphic design with adaptive light/dark mode support |
-| `retro` | Vintage computer/pixel art inspired style |
-| `cyberpunk` | Futuristic neon style with scan lines and glowing effects |
-| `pastel` | Soft, gentle colors with smooth corners and subtle shadows |
-| `terminal` | Command-line inspired theme with monospace font and console aesthetics |
-| `elegant` | Sophisticated typography with subtle bottom borders and serif fonts |
-| `bubble` | Speech bubble style with triangular tail and rounded corners |
-| `forest` | Nature-inspired dark green theme with leaf pattern texture |
-| `futuristic` | High-tech UI with gradients, accents, and modern typography |
-| `comic` | Fun cartoon-style design with speech bubbles and bold outlines |
-| `luxury` | Premium dark theme with gold accents and subtle gradients |
-| `neon-brutalism` | Bold, skewed design with bright contrasting colors and thick outlines |
-| `monochrome` | Minimalist black and white design with geometric accents |
-| `candy` | Sweet, colorful design with dotted patterns and soft gradients |
+## License
 
-### Using Themes
+ButterPop.js is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
 
-```javascript
-// Set a theme for a specific toast
-ButterPop.success("Operation completed!", { theme: "glassmorphism" });
+## Releases
 
-// Set a default theme for all toasts
-ButterPop.configure({ theme: "material" });
-```
+For the latest updates and versions, visit the [Releases](https://github.com/BAHEKARPRANAV/ButterPop.js/releases) section. Here, you can download the latest version and find detailed release notes.
 
-### Custom Icons
+---
 
-You can customize the icons in your toast notifications using several methods:
-
-```javascript
-// Use an emoji as an icon
-ButterPop.show({
-  message: "Toast with emoji icon",
-  type: "info",
-  icon: "🚀"
-});
-
-// Use custom SVG
-const svgIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`;
-
-ButterPop.show({
-  message: "Toast with custom SVG icon",
-  type: "info",
-  icon: svgIcon
-});
-
-// Use Font Awesome or other icon libraries
-// Make sure to include the Font Awesome library in your project
-ButterPop.show({
-  message: "Toast with Font Awesome icon",
-  type: "info",
-  icon: '<i class="fas fa-bell" style="font-size: 24px;"></i>'
-});
-
-// Use an image
-ButterPop.show({
-  message: "Toast with image icon",
-  type: "info",
-  icon: '<img src="path/to/icon.png" width="24" height="24" alt="Icon">'
-});
-
-// Remove the icon completely
-ButterPop.show({
-  message: "Toast with no icon",
-  type: "info",
-  icon: false
-});
-```
-
-## ⚙️ Advanced Usage
-
-### Global Configuration
-
-You can set default options for all toasts:
-
-```javascript
-ButterPop.configure({
-  position: "bottom-center",
-  duration: 8000,
-  theme: "material",
-  progress: true,
-  pauseOnHover: true,
-  maxVisible: 3
-});
-```
-
-### Custom Callbacks
-
-```javascript
-ButterPop.show({
-  message: "Click me for more info",
-  type: "info",
-  onClick: () => {
-    window.open('https://example.com', '_blank');
-  },
-  onClose: () => {
-    console.log('Toast was closed');
-  }
-});
-```
-
-### Creating Persistent Toasts
-
-Set duration to 0 to make a toast stay until manually closed:
-
-```javascript
-ButterPop.warning("This won't disappear until you close it", {
-  duration: 0,
-  closable: true
-});
-```
-
-### Preventing Duplicates
-
-```javascript
-// This will only show one toast, even if called multiple times
-const options = {
-  message: "You have a new notification",
-  preventDuplicates: true
-};
-
-ButterPop.info(options.message, options);
-ButterPop.info(options.message, options); // This one won't appear
-```
-
-## 🧩 Browser Compatibility
-
-- Chrome 49+
-- Firefox 52+
-- Safari 10+
-- Edge 16+
-- Opera 36+
-- iOS Safari 10+
-- Android Browser 4.4+
-
-## 📚 Examples
-
-### Form Validation
-
-```javascript
-function validateForm() {
-  const email = document.getElementById('email').value;
-  if (!email.includes('@')) {
-    ButterPop.error("Please enter a valid email address", {
-      position: "top-center",
-      theme: "material"
-    });
-    return false;
-  }
-  
-  ButterPop.success("Form submitted successfully!");
-  return true;
-}
-```
-
-### API Request Notification
-
-```javascript
-async function fetchData() {
-  try {
-    ButterPop.info("Fetching data...", { duration: 0, id: "fetch-toast" });
-    
-    const response = await fetch('https://api.example.com/data');
-    const data = await response.json();
-    
-    ButterPop.remove("fetch-toast");
-    ButterPop.success("Data loaded successfully!");
-    
-    return data;
-  } catch (error) {
-    ButterPop.remove("fetch-toast");
-    ButterPop.error("Failed to load data: " + error.message, {
-      duration: 0,
-      actions: [{
-        text: "Retry",
-        callback: fetchData
-      }]
-    });
-  }
-}
-```
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to open issues or submit pull requests.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-MIT © [Ayushx309](https://github.com/Ayushx309) 
+Thank you for using ButterPop.js! We hope it enhances your web applications with beautiful notifications. If you have any questions or feedback, feel free to reach out through the repository issues.
